@@ -5,7 +5,7 @@
     [Ime] NVARCHAR(100) NOT NULL, 
     [Prezime] NVARCHAR(100) NOT NULL, 
     [Visina] SMALLINT NULL CHECK ([Visina] > 35), 
-    [Tezina] SMALLINT NULL CHECK ([Tezina] > 0 AND [Tezina] < 250), 
+    [Tezina] SMALLINT NULL CHECK ([Tezina] BETWEEN 1 AND 250), 
     [BojaOciju] NCHAR(11) NULL CHECK ([BojaOciju] IN('Kestenjaste','Plave','Zelene')), 
     [Telefon] NVARCHAR(30) NOT NULL, 
     [E-posta] NVARCHAR(100) NOT NULL, 
