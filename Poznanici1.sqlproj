@@ -70,6 +70,7 @@
     <Build Include="dbo\Tables\Osoba.sql" />
     <Build Include="dbo\Stored Procedures\insOSOBA.sql" />
     <Build Include="dbo\Functions\CapitalizeFirstLetter.sql" />
+    <Build Include="dbo\Stored Procedures\delOSOBA.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Poznanici1.refactorlog" />
