@@ -7,8 +7,8 @@
     [Visina] SMALLINT NULL CHECK ([Visina] > 35), 
     [Tezina] SMALLINT NULL CHECK ([Tezina] BETWEEN 1 AND 250), 
     [BojaOciju] NCHAR(11) NULL CHECK ([BojaOciju] IN('Kestenjaste','Plave','Zelene')), 
-    [Telefon] NVARCHAR(30) NOT NULL, 
-    [E-posta] NVARCHAR(100) NOT NULL, 
+    [Telefon] NVARCHAR(30) NOT NULL CHECK ([Telefon] LIKE '[\(][\+][3][8][1][6][\)][\(][0][\)][0-9][0-9][.][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]'), 
+    [E-posta] NVARCHAR(100) NOT NULL CHECK ([E-posta] LIKE '%_@__%.__%'), 
     [Rodjendan] DATE NULL DEFAULT getdate(), 
     [Adresa] NVARCHAR(100) NULL, 
     [Prebivaliste] NCHAR(9) NULL CHECK ([Prebivaliste] IN('Beograd','Smederevo','Pirot','Sombor','Bor','Prokuplje'))

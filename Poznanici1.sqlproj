@@ -72,8 +72,8 @@
     <Build Include="dbo\Functions\CapitalizeFirstLetter.sql" />
     <Build Include="dbo\Stored Procedures\delOSOBA.sql" />
     <Build Include="dbo\Stored Procedures\selOSOBA.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="Poznanici1.refactorlog" />
+    <Build Include="dbo\Functions\GetPunoletneOsobe.sql" />
+    <Build Include="dbo\Functions\fnSrednjaStarost.sql" />
+    <Build Include="dbo\Stored Procedures\updOSOBA.sql" />
   </ItemGroup>
 </Project>
