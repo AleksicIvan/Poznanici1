@@ -11,7 +11,31 @@
 	@Adresa nvarchar(100),
 	@Prebivaliste nchar(9)
 	AS
-	INSERT INTO [dbo].[Osoba] (JMBG, Ime, Prezime, Visina, Tezina, BojaOciju, Telefon, [E-posta], Rodjendan, Adresa, Prebivaliste)
-	VALUES (@JMBG, [dbo].[CapitalizeFirstLetter](@Ime), [dbo].[CapitalizeFirstLetter](@Prezime), @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste)
+	INSERT INTO [dbo].[Osoba] (
+		JMBG, 
+		Ime, 
+		Prezime, 
+		Visina, 
+		Tezina, 
+		BojaOciju, 
+		Telefon, 
+		[E-posta], 
+		Rodjendan, 
+		Adresa, 
+		Prebivaliste
+	)
+	VALUES (
+		@JMBG, 
+		[dbo].[fnPrvoSlovoVeliko](@Ime), 
+		[dbo].[fnPrvoSlovoVeliko](@Prezime), 
+		@Visina, 
+		@Tezina, 
+		@BojaOciju, 
+		@Telefon, 
+		@Eposta, 
+		@Rodjendan, 
+		@Adresa, 
+		[dbo].[fnPrvoSlovoVeliko](@Prebivaliste)
+	)
 
 GO

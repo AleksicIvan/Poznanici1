@@ -1,10 +1,11 @@
-﻿CREATE FUNCTION [dbo].[DatabaseScalarFunction1]
+﻿CREATE FUNCTION [dbo].[fnSrednjaStarost]()
+RETURNS @SrednjaStarost TABLE 
 (
-	@param1 int,
-	@param2 int
+	SrednjaStarost INT
 )
-RETURNS INT
 AS
 BEGIN
-	RETURN @param1 + @param2
+	INSERT @SrednjaStarost
+	SELECT AVG([dbo].[fnSamoGodinaRodjenja]([dbo].[Osoba].[Rodjendan])) AS SrednjaStarost FROM [dbo].[Osoba]
+	RETURN
 END

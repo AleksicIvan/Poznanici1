@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[CapitalizeFirstLetter] 
+﻿CREATE FUNCTION [dbo].[fnPrvoSlovoVeliko] 
 (
 	@word nvarchar(100)
 )

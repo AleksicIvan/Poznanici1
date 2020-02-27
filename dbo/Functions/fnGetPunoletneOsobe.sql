@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[GetPunoletneOsobe]
+﻿CREATE FUNCTION [dbo].[fnGetPunoletneOsobe]
 (
 	@DatumRodjenja DATE
 )
@@ -10,7 +10,7 @@ DECLARE @GodineDecimal DECIMAL,
 		@Punoletan BIT
 
 	SET @GodineDecimal = DATEDIFF(hour, @DatumRodjenja, GETDATE()) / 8766.0
-	SET @GodineZaokruzeno = CONVERT(int, ROUND(DATEDIFF(hour, @DatumRodjenja, GETDATE())/8766.0,0))
+	SET @GodineZaokruzeno = CONVERT(int, ROUND(DATEDIFF(hour, @DatumRodjenja, GETDATE()) / 8766.0,0))
 
 	IF (@GodineZaokruzeno >= 18)
 		SET @Punoletan = 1

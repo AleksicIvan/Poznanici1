@@ -2,5 +2,5 @@
 	@Id int
 AS
 	DELETE FROM [dbo].[Osoba]
-	WHERE [dbo].[Osoba].Id = @Id
+	WHERE [dbo].[Osoba].[Id] = @Id
 RETURN 0
