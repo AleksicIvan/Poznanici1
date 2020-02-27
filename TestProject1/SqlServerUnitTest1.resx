@@ -147,7 +147,7 @@ SELECT @RC AS RC;
 SELECT @RC = 0,
        @DatumRodjenja = '1976-05-19';
 
-SELECT @RC = [dbo].[fnSamoGodinaRodjenja](@DatumRodjenja);
+SELECT @RC = [dbo].[fnStarost](@DatumRodjenja);
 
 SELECT @RC AS RC;
 
@@ -242,37 +242,6 @@ SELECT @Avg = SrednjaStarost FROM [dbo].[fnSrednjaStarost]();
 SELECT @Avg AS RC;
 </value>
   </data>
-  <data name="dbo_delOSOBATest_PretestAction.SqlScript" xml:space="preserve">
-    <value>DECLARE @JMBG AS NCHAR (13), 
-		@Ime AS NVARCHAR (100), 
-		@Prezime AS NVARCHAR (100), 
-		@Visina AS SMALLINT, 
-		@Tezina AS SMALLINT, 
-		@BojaOciju AS NCHAR (11), 
-		@Telefon AS NVARCHAR (30), 
-		@Eposta AS NVARCHAR (100), 
-		@Rodjendan AS DATE, 
-		@Adresa AS NVARCHAR (100), 
-		@Prebivaliste AS NCHAR (9);
-
-SELECT @JMBG = '1905976751035',
-       @Ime = 'Ivan',
-       @Prezime = 'Aleksić',
-       @Visina = 176,
-       @Tezina = 91,
-       @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
-       @Eposta = 'ivan@mail.com',
-       @Rodjendan = '1976-05-19',
-       @Adresa = 'Rudarska 15',
-       @Prebivaliste = 'Bor';
-
-IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)  
-	BEGIN  
-	EXECUTE [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;  
-	END  
-</value>
-  </data>
   <data name="dbo_insOSOBATest_PretestAction.SqlScript" xml:space="preserve">
     <value>DECLARE @RC AS INT,
 		@OsobaId AS INT,  
@@ -309,7 +278,7 @@ SELECT @OsobaId = [Id] FROM [dbo].[Osoba] WHERE [JMBG] = @JMBG;
 DELETE from [dbo].[Osoba] WHERE [Id] = @OsobaId;  
 </value>
   </data>
-  <data name="dbo_selOSOBATest_PretestAction.SqlScript" xml:space="preserve">
+  <data name="dbo_updOSOBATest_PretestAction.SqlScript" xml:space="preserve">
     <value>DECLARE @RC AS INT,  
 		@JMBG AS NCHAR (13), 
 		@Ime AS NVARCHAR (100), 
@@ -341,7 +310,38 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 	END  
 </value>
   </data>
-  <data name="dbo_updOSOBATest_PretestAction.SqlScript" xml:space="preserve">
+  <data name="dbo_delOSOBATest_PretestAction.SqlScript" xml:space="preserve">
+    <value>DECLARE @JMBG AS NCHAR (13), 
+		@Ime AS NVARCHAR (100), 
+		@Prezime AS NVARCHAR (100), 
+		@Visina AS SMALLINT, 
+		@Tezina AS SMALLINT, 
+		@BojaOciju AS NCHAR (11), 
+		@Telefon AS NVARCHAR (30), 
+		@Eposta AS NVARCHAR (100), 
+		@Rodjendan AS DATE, 
+		@Adresa AS NVARCHAR (100), 
+		@Prebivaliste AS NCHAR (9);
+
+SELECT @JMBG = '1905976751035',
+       @Ime = 'Ivan',
+       @Prezime = 'Aleksić',
+       @Visina = 176,
+       @Tezina = 91,
+       @BojaOciju = 'Kestenjaste',
+       @Telefon = '(+3816)(0)64.111.1111',
+       @Eposta = 'ivan@mail.com',
+       @Rodjendan = '1976-05-19',
+       @Adresa = 'Rudarska 15',
+       @Prebivaliste = 'Bor';
+
+IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)  
+	BEGIN  
+	EXECUTE [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;  
+	END  
+</value>
+  </data>
+  <data name="dbo_selOSOBATest_PretestAction.SqlScript" xml:space="preserve">
     <value>DECLARE @RC AS INT,  
 		@JMBG AS NCHAR (13), 
 		@Ime AS NVARCHAR (100), 
@@ -385,7 +385,18 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
-		@Prebivaliste AS NCHAR (9);
+		@Prebivaliste AS NCHAR (9),
+		@JMBGA AS NCHAR (13), 
+		@ImeA AS NVARCHAR (100), 
+		@PrezimeA AS NVARCHAR (100), 
+		@VisinaA AS SMALLINT, 
+		@TezinaA AS SMALLINT, 
+		@BojaOcijuA AS NCHAR (11), 
+		@TelefonA AS NVARCHAR (30), 
+		@EpostaA AS NVARCHAR (100), 
+		@RodjendanA AS DATE, 
+		@AdresaA AS NVARCHAR (100), 
+		@PrebivalisteA AS NCHAR (9);
 
 SELECT @JMBG = '1905976751035',
        @Ime = 'Ivan',
@@ -397,16 +408,26 @@ SELECT @JMBG = '1905976751035',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
-       @Prebivaliste = 'Bor';
+       @Prebivaliste = 'Bor',
+	   @JMBGA = '1905976751036',
+       @ImeA = 'Jovan',
+       @PrezimeA = 'Aleksić',
+       @VisinaA = 200,
+       @TezinaA = 91,
+       @BojaOcijuA = 'Kestenjaste',
+       @TelefonA = '(+3816)(0)64.111.1111',
+       @EpostaA = 'jovan@mail.com',
+       @RodjendanA = '1986-05-19',
+       @AdresaA = 'Rudarska 35',
+       @PrebivalisteA = 'Bor';
 
-IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)  
-	BEGIN  
-	EXECUTE @RC = [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;  
-	END  </value>
+DELETE FROM [dbo].[Osoba];
+EXECUTE @RC = [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;  
+EXECUTE @RC = [dbo].[insOSOBA] @JMBGA, @ImeA, @PrezimeA, @VisinaA, @TezinaA, @BojaOcijuA, @TelefonA, @EpostaA, @RodjendanA, @AdresaA, @PrebivalisteA;  
+ </value>
   </data>
   <data name="dbo_fnSrednjaStarostTest_PretestAction.SqlScript" xml:space="preserve">
     <value>DECLARE @RC AS INT,  
-		@OsobaId AS INT,
 		@JMBG AS NCHAR (13), 
 		@Ime AS NVARCHAR (100), 
 		@Prezime AS NVARCHAR (100), 
@@ -417,10 +438,20 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
-		@Prebivaliste AS NCHAR (9);
+		@Prebivaliste AS NCHAR (9),
+		@JMBGA AS NCHAR (13), 
+		@ImeA AS NVARCHAR (100), 
+		@PrezimeA AS NVARCHAR (100), 
+		@VisinaA AS SMALLINT, 
+		@TezinaA AS SMALLINT, 
+		@BojaOcijuA AS NCHAR (11), 
+		@TelefonA AS NVARCHAR (30), 
+		@EpostaA AS NVARCHAR (100), 
+		@RodjendanA AS DATE, 
+		@AdresaA AS NVARCHAR (100), 
+		@PrebivalisteA AS NCHAR (9);
 
-SELECT @OsobaId = 0,
-	   @JMBG = '1905976751035',
+SELECT @JMBG = '1905976751090',
        @Ime = 'Ivan',
        @Prezime = 'Aleksić',
        @Visina = 176,
@@ -430,20 +461,24 @@ SELECT @OsobaId = 0,
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
-       @Prebivaliste = 'Bor';
+       @Prebivaliste = 'Bor',
+	   @JMBGA = '1905976751056',
+       @ImeA = 'Jovan',
+       @PrezimeA = 'Aleksić',
+       @VisinaA = 200,
+       @TezinaA = 91,
+       @BojaOcijuA = 'Kestenjaste',
+       @TelefonA = '(+3816)(0)64.111.1111',
+       @EpostaA = 'jovan@mail.com',
+       @RodjendanA = '1986-05-19',
+       @AdresaA = 'Rudarska 35',
+       @PrebivalisteA = 'Bor';
 
-IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)  
-	BEGIN  
-	EXECUTE [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;
-	END  
+DELETE FROM [dbo].[Osoba];
 
-SELECT @OsobaId = [Id] FROM [dbo].[Osoba] WHERE [JMBG] = @JMBG;  
-DELETE from [dbo].[Osoba] WHERE [Id] = @OsobaId;  
-  
-
-
-		
-</value>
+EXECUTE @RC = [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;  
+EXECUTE @RC = [dbo].[insOSOBA] @JMBGA, @ImeA, @PrezimeA, @VisinaA, @TezinaA, @BojaOcijuA, @TelefonA, @EpostaA, @RodjendanA, @AdresaA, @PrebivalisteA;  
+ </value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

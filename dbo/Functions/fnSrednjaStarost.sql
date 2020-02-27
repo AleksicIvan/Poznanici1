@@ -6,6 +6,6 @@ RETURNS @SrednjaStarost TABLE
 AS
 BEGIN
 	INSERT @SrednjaStarost
-	SELECT AVG([dbo].[fnSamoGodinaRodjenja]([dbo].[Osoba].[Rodjendan])) AS SrednjaStarost FROM [dbo].[Osoba]
+	SELECT AVG([dbo].[fnStarost]([dbo].[Osoba].[Rodjendan])) AS SrednjaStarost FROM [dbo].[Osoba]
 	RETURN
 END

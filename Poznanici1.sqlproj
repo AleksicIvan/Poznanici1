@@ -74,7 +74,7 @@
     <Build Include="dbo\Stored Procedures\selOSOBA.sql" />
     <Build Include="dbo\Functions\fnGetPunoletneOsobe.sql" />
     <Build Include="dbo\Stored Procedures\updOSOBA.sql" />
-    <Build Include="dbo\Functions\fnSamoGodinaRodjenja.sql" />
+    <Build Include="dbo\Functions\fnStarost.sql" />
     <Build Include="dbo\Views\PunoletniSmederevci.sql" />
     <Build Include="dbo\Functions\fnSrednjaStarost.sql" />
     <Build Include="dbo\Functions\fnMaxVisina.sql" />

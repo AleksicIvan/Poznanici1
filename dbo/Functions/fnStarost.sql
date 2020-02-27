@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [dbo].[fnSamoGodinaRodjenja]
+﻿CREATE FUNCTION [dbo].[fnStarost]
 (
 	@DatumRodjenja DATE
 )
