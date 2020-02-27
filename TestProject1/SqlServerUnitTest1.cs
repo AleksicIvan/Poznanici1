@@ -42,7 +42,7 @@ namespace TestProject1
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition3;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnPrvoSlovoVelikoTest_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition2;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnSamoGodinaRodjenjaTest_TestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnStarostTest_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition scalarValueCondition1;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_delOSOBATest_TestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition rowCountCondition4;
@@ -64,9 +64,18 @@ namespace TestProject1
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_selOSOBATest_PretestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnMaxVisinaTest_PretestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnSrednjaStarostTest_PretestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_delOSOBATest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnGetPunoletneOsobeTest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnMaxVisinaTest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnPrvoSlovoVelikoTest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnSrednjaStarostTest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_fnStarostTest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_insOSOBATest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_selOSOBATest_PosttestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_updOSOBATest_PosttestAction;
             this.dbo_fnGetPunoletneOsobeTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.dbo_fnPrvoSlovoVelikoTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
-            this.dbo_fnSamoGodinaRodjenjaTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            this.dbo_fnStarostTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.dbo_delOSOBATestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.dbo_insOSOBATestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             this.dbo_selOSOBATestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
@@ -77,7 +86,7 @@ namespace TestProject1
             scalarValueCondition3 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             dbo_fnPrvoSlovoVelikoTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             scalarValueCondition2 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
-            dbo_fnSamoGodinaRodjenjaTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_fnStarostTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             scalarValueCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             dbo_delOSOBATest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             rowCountCondition4 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
@@ -99,6 +108,15 @@ namespace TestProject1
             dbo_selOSOBATest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             dbo_fnMaxVisinaTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             dbo_fnSrednjaStarostTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_delOSOBATest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_fnGetPunoletneOsobeTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_fnMaxVisinaTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_fnPrvoSlovoVelikoTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_fnSrednjaStarostTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_fnStarostTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_insOSOBATest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_selOSOBATest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_updOSOBATest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             // 
             // dbo_fnGetPunoletneOsobeTest_TestAction
             // 
@@ -130,10 +148,10 @@ namespace TestProject1
             scalarValueCondition2.ResultSet = 1;
             scalarValueCondition2.RowNumber = 1;
             // 
-            // dbo_fnSamoGodinaRodjenjaTest_TestAction
+            // dbo_fnStarostTest_TestAction
             // 
-            dbo_fnSamoGodinaRodjenjaTest_TestAction.Conditions.Add(scalarValueCondition1);
-            resources.ApplyResources(dbo_fnSamoGodinaRodjenjaTest_TestAction, "dbo_fnSamoGodinaRodjenjaTest_TestAction");
+            dbo_fnStarostTest_TestAction.Conditions.Add(scalarValueCondition1);
+            resources.ApplyResources(dbo_fnStarostTest_TestAction, "dbo_fnStarostTest_TestAction");
             // 
             // scalarValueCondition1
             // 
@@ -266,57 +284,93 @@ namespace TestProject1
             // 
             resources.ApplyResources(dbo_fnSrednjaStarostTest_PretestAction, "dbo_fnSrednjaStarostTest_PretestAction");
             // 
+            // dbo_delOSOBATest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_delOSOBATest_PosttestAction, "dbo_delOSOBATest_PosttestAction");
+            // 
+            // dbo_fnGetPunoletneOsobeTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_fnGetPunoletneOsobeTest_PosttestAction, "dbo_fnGetPunoletneOsobeTest_PosttestAction");
+            // 
+            // dbo_fnMaxVisinaTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_fnMaxVisinaTest_PosttestAction, "dbo_fnMaxVisinaTest_PosttestAction");
+            // 
+            // dbo_fnPrvoSlovoVelikoTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_fnPrvoSlovoVelikoTest_PosttestAction, "dbo_fnPrvoSlovoVelikoTest_PosttestAction");
+            // 
+            // dbo_fnSrednjaStarostTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_fnSrednjaStarostTest_PosttestAction, "dbo_fnSrednjaStarostTest_PosttestAction");
+            // 
+            // dbo_fnStarostTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_fnStarostTest_PosttestAction, "dbo_fnStarostTest_PosttestAction");
+            // 
+            // dbo_insOSOBATest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_insOSOBATest_PosttestAction, "dbo_insOSOBATest_PosttestAction");
+            // 
+            // dbo_selOSOBATest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_selOSOBATest_PosttestAction, "dbo_selOSOBATest_PosttestAction");
+            // 
+            // dbo_updOSOBATest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_updOSOBATest_PosttestAction, "dbo_updOSOBATest_PosttestAction");
+            // 
             // dbo_fnGetPunoletneOsobeTestData
             // 
-            this.dbo_fnGetPunoletneOsobeTestData.PosttestAction = null;
+            this.dbo_fnGetPunoletneOsobeTestData.PosttestAction = dbo_fnGetPunoletneOsobeTest_PosttestAction;
             this.dbo_fnGetPunoletneOsobeTestData.PretestAction = null;
             this.dbo_fnGetPunoletneOsobeTestData.TestAction = dbo_fnGetPunoletneOsobeTest_TestAction;
             // 
             // dbo_fnPrvoSlovoVelikoTestData
             // 
-            this.dbo_fnPrvoSlovoVelikoTestData.PosttestAction = null;
+            this.dbo_fnPrvoSlovoVelikoTestData.PosttestAction = dbo_fnPrvoSlovoVelikoTest_PosttestAction;
             this.dbo_fnPrvoSlovoVelikoTestData.PretestAction = null;
             this.dbo_fnPrvoSlovoVelikoTestData.TestAction = dbo_fnPrvoSlovoVelikoTest_TestAction;
             // 
-            // dbo_fnSamoGodinaRodjenjaTestData
+            // dbo_fnStarostTestData
             // 
-            this.dbo_fnSamoGodinaRodjenjaTestData.PosttestAction = null;
-            this.dbo_fnSamoGodinaRodjenjaTestData.PretestAction = null;
-            this.dbo_fnSamoGodinaRodjenjaTestData.TestAction = dbo_fnSamoGodinaRodjenjaTest_TestAction;
+            this.dbo_fnStarostTestData.PosttestAction = dbo_fnStarostTest_PosttestAction;
+            this.dbo_fnStarostTestData.PretestAction = null;
+            this.dbo_fnStarostTestData.TestAction = dbo_fnStarostTest_TestAction;
             // 
             // dbo_delOSOBATestData
             // 
-            this.dbo_delOSOBATestData.PosttestAction = null;
+            this.dbo_delOSOBATestData.PosttestAction = dbo_delOSOBATest_PosttestAction;
             this.dbo_delOSOBATestData.PretestAction = dbo_delOSOBATest_PretestAction;
             this.dbo_delOSOBATestData.TestAction = dbo_delOSOBATest_TestAction;
             // 
             // dbo_insOSOBATestData
             // 
-            this.dbo_insOSOBATestData.PosttestAction = null;
+            this.dbo_insOSOBATestData.PosttestAction = dbo_insOSOBATest_PosttestAction;
             this.dbo_insOSOBATestData.PretestAction = dbo_insOSOBATest_PretestAction;
             this.dbo_insOSOBATestData.TestAction = dbo_insOSOBATest_TestAction;
             // 
             // dbo_selOSOBATestData
             // 
-            this.dbo_selOSOBATestData.PosttestAction = null;
+            this.dbo_selOSOBATestData.PosttestAction = dbo_selOSOBATest_PosttestAction;
             this.dbo_selOSOBATestData.PretestAction = dbo_selOSOBATest_PretestAction;
             this.dbo_selOSOBATestData.TestAction = dbo_selOSOBATest_TestAction;
             // 
             // dbo_updOSOBATestData
             // 
-            this.dbo_updOSOBATestData.PosttestAction = null;
+            this.dbo_updOSOBATestData.PosttestAction = dbo_updOSOBATest_PosttestAction;
             this.dbo_updOSOBATestData.PretestAction = dbo_updOSOBATest_PretestAction;
             this.dbo_updOSOBATestData.TestAction = dbo_updOSOBATest_TestAction;
             // 
             // dbo_fnMaxVisinaTestData
             // 
-            this.dbo_fnMaxVisinaTestData.PosttestAction = null;
+            this.dbo_fnMaxVisinaTestData.PosttestAction = dbo_fnMaxVisinaTest_PosttestAction;
             this.dbo_fnMaxVisinaTestData.PretestAction = dbo_fnMaxVisinaTest_PretestAction;
             this.dbo_fnMaxVisinaTestData.TestAction = dbo_fnMaxVisinaTest_TestAction;
             // 
             // dbo_fnSrednjaStarostTestData
             // 
-            this.dbo_fnSrednjaStarostTestData.PosttestAction = null;
+            this.dbo_fnSrednjaStarostTestData.PosttestAction = dbo_fnSrednjaStarostTest_PosttestAction;
             this.dbo_fnSrednjaStarostTestData.PretestAction = dbo_fnSrednjaStarostTest_PretestAction;
             this.dbo_fnSrednjaStarostTestData.TestAction = dbo_fnSrednjaStarostTest_TestAction;
         }
@@ -386,29 +440,6 @@ namespace TestProject1
             }
         }
 
-        [TestMethod()]
-        public void dbo_fnStarost()
-        {
-            SqlDatabaseTestActions testActions = this.dbo_fnSamoGodinaRodjenjaTestData;
-            // Execute the pre-test script
-            // 
-            System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
-            SqlExecutionResult[] pretestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PretestAction);
-            try
-            {
-                // Execute the test script
-                // 
-                System.Diagnostics.Trace.WriteLineIf((testActions.TestAction != null), "Executing test script...");
-                SqlExecutionResult[] testResults = TestService.Execute(this.ExecutionContext, this.PrivilegedContext, testActions.TestAction);
-            }
-            finally
-            {
-                // Execute the post-test script
-                // 
-                System.Diagnostics.Trace.WriteLineIf((testActions.PosttestAction != null), "Executing post-test script...");
-                SqlExecutionResult[] posttestResults = TestService.Execute(this.PrivilegedContext, this.PrivilegedContext, testActions.PosttestAction);
-            }
-        }
 
         [TestMethod()]
         public void dbo_delOSOBATest()
@@ -554,9 +585,9 @@ namespace TestProject1
             }
         }
         [TestMethod()]
-        public void dbo_fnSamoGodinaRodjenjaTest()
+        public void dbo_fnStarostTest()
         {
-            SqlDatabaseTestActions testActions = this.dbo_fnSamoGodinaRodjenjaTestData;
+            SqlDatabaseTestActions testActions = this.dbo_fnStarostTestData;
             // Execute the pre-test script
             // 
             System.Diagnostics.Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -579,7 +610,7 @@ namespace TestProject1
 
         private SqlDatabaseTestActions dbo_fnGetPunoletneOsobeTestData;
         private SqlDatabaseTestActions dbo_fnPrvoSlovoVelikoTestData;
-        private SqlDatabaseTestActions dbo_fnSamoGodinaRodjenjaTestData;
+        private SqlDatabaseTestActions dbo_fnStarostTestData;
         private SqlDatabaseTestActions dbo_delOSOBATestData;
         private SqlDatabaseTestActions dbo_insOSOBATestData;
         private SqlDatabaseTestActions dbo_selOSOBATestData;

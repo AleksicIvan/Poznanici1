@@ -141,7 +141,7 @@ SELECT @RC AS RC;
 
 </value>
   </data>
-  <data name="dbo_fnSamoGodinaRodjenjaTest_TestAction.SqlScript" xml:space="preserve">
+  <data name="dbo_fnStarostTest_TestAction.SqlScript" xml:space="preserve">
     <value>DECLARE @RC AS INT, @DatumRodjenja AS DATE;
 
 SELECT @RC = 0,
@@ -167,7 +167,7 @@ SELECT @RC AS RC;
 </value>
   </data>
   <data name="dbo_insOSOBATest_TestAction.SqlScript" xml:space="preserve">
-    <value>DECLARE @NovaOsobaId INT, @RC AS NVARCHAR (100), @JMBG AS NCHAR (13), @Ime AS NVARCHAR (100), @Prezime AS NVARCHAR (100), @Visina AS SMALLINT, @Tezina AS SMALLINT, @BojaOciju AS NCHAR (11), @Telefon AS NVARCHAR (30), @Eposta AS NVARCHAR (100), @Rodjendan AS DATE, @Adresa AS NVARCHAR (100), @Prebivaliste AS NCHAR (9);
+    <value>DECLARE @NovaOsobaId INT, @RC AS NVARCHAR (100), @JMBG AS NCHAR (13), @Ime AS NVARCHAR (100), @Prezime AS NVARCHAR (100), @Visina AS SMALLINT, @Tezina AS SMALLINT, @BojaOciju AS NCHAR (11), @Telefon AS NVARCHAR (29), @Eposta AS NVARCHAR (100), @Rodjendan AS DATE, @Adresa AS NVARCHAR (100), @Prebivaliste AS NCHAR (9);
 
 SELECT @RC = NULL,
        @JMBG = '1905976751035',
@@ -176,7 +176,7 @@ SELECT @RC = NULL,
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -203,7 +203,7 @@ SELECT @RC AS RC;
   </data>
   <data name="dbo_updOSOBATest_TestAction.SqlScript" xml:space="preserve">
     <value>-- database unit test for dbo.updOSOBA
-DECLARE @RC AS NVARCHAR(100), @Id INT, @JMBG AS NCHAR (13), @Ime AS NVARCHAR (100), @Prezime AS NVARCHAR (100), @Visina AS SMALLINT, @Tezina AS SMALLINT, @BojaOciju AS NCHAR (11), @Telefon AS NVARCHAR (30), @Eposta AS NVARCHAR (100), @Rodjendan AS DATE, @Adresa AS NVARCHAR (100), @Prebivaliste AS NCHAR (9);
+DECLARE @RC AS NVARCHAR(100), @Id INT, @JMBG AS NCHAR (13), @Ime AS NVARCHAR (100), @Prezime AS NVARCHAR (100), @Visina AS SMALLINT, @Tezina AS SMALLINT, @BojaOciju AS NCHAR (11), @Telefon AS NVARCHAR (29), @Eposta AS NVARCHAR (100), @Rodjendan AS DATE, @Adresa AS NVARCHAR (100), @Prebivaliste AS NCHAR (9);
 SELECT @RC = NULL,
        @JMBG = '1905976751035',
        @Ime = 'Ivan',
@@ -211,7 +211,7 @@ SELECT @RC = NULL,
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.2222',
+       @Telefon = '(+381)(0)64.111.2222',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 130',
@@ -263,7 +263,7 @@ SELECT @JMBG = '1905976751035',
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -286,7 +286,7 @@ DELETE from [dbo].[Osoba] WHERE [Id] = @OsobaId;
 		@Visina AS SMALLINT, 
 		@Tezina AS SMALLINT, 
 		@BojaOciju AS NCHAR (11), 
-		@Telefon AS NVARCHAR (30), 
+		@Telefon AS NVARCHAR (29), 
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
@@ -298,7 +298,7 @@ SELECT @JMBG = '1905976751035',
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -311,13 +311,14 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 </value>
   </data>
   <data name="dbo_delOSOBATest_PretestAction.SqlScript" xml:space="preserve">
-    <value>DECLARE @JMBG AS NCHAR (13), 
+    <value>DELETE FROM [dbo].[Osoba];
+DECLARE @JMBG AS NCHAR (13), 
 		@Ime AS NVARCHAR (100), 
 		@Prezime AS NVARCHAR (100), 
 		@Visina AS SMALLINT, 
 		@Tezina AS SMALLINT, 
 		@BojaOciju AS NCHAR (11), 
-		@Telefon AS NVARCHAR (30), 
+		@Telefon AS NVARCHAR (29), 
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
@@ -329,7 +330,7 @@ SELECT @JMBG = '1905976751035',
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -349,7 +350,7 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 		@Visina AS SMALLINT, 
 		@Tezina AS SMALLINT, 
 		@BojaOciju AS NCHAR (11), 
-		@Telefon AS NVARCHAR (30), 
+		@Telefon AS NVARCHAR (29), 
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
@@ -361,7 +362,7 @@ SELECT @JMBG = '1905976751035',
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -381,7 +382,7 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 		@Visina AS SMALLINT, 
 		@Tezina AS SMALLINT, 
 		@BojaOciju AS NCHAR (11), 
-		@Telefon AS NVARCHAR (30), 
+		@Telefon AS NVARCHAR (29), 
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
@@ -392,7 +393,7 @@ IF NOT EXISTS(SELECT * FROM [dbo].[Osoba] WHERE JMBG = @JMBG)
 		@VisinaA AS SMALLINT, 
 		@TezinaA AS SMALLINT, 
 		@BojaOcijuA AS NCHAR (11), 
-		@TelefonA AS NVARCHAR (30), 
+		@TelefonA AS NVARCHAR (29), 
 		@EpostaA AS NVARCHAR (100), 
 		@RodjendanA AS DATE, 
 		@AdresaA AS NVARCHAR (100), 
@@ -404,7 +405,7 @@ SELECT @JMBG = '1905976751035',
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -415,7 +416,7 @@ SELECT @JMBG = '1905976751035',
        @VisinaA = 200,
        @TezinaA = 91,
        @BojaOcijuA = 'Kestenjaste',
-       @TelefonA = '(+3816)(0)64.111.1111',
+       @TelefonA = '(+381)(0)64.111.1111',
        @EpostaA = 'jovan@mail.com',
        @RodjendanA = '1986-05-19',
        @AdresaA = 'Rudarska 35',
@@ -434,7 +435,7 @@ EXECUTE @RC = [dbo].[insOSOBA] @JMBGA, @ImeA, @PrezimeA, @VisinaA, @TezinaA, @Bo
 		@Visina AS SMALLINT, 
 		@Tezina AS SMALLINT, 
 		@BojaOciju AS NCHAR (11), 
-		@Telefon AS NVARCHAR (30), 
+		@Telefon AS NVARCHAR (29), 
 		@Eposta AS NVARCHAR (100), 
 		@Rodjendan AS DATE, 
 		@Adresa AS NVARCHAR (100), 
@@ -445,7 +446,7 @@ EXECUTE @RC = [dbo].[insOSOBA] @JMBGA, @ImeA, @PrezimeA, @VisinaA, @TezinaA, @Bo
 		@VisinaA AS SMALLINT, 
 		@TezinaA AS SMALLINT, 
 		@BojaOcijuA AS NCHAR (11), 
-		@TelefonA AS NVARCHAR (30), 
+		@TelefonA AS NVARCHAR (29), 
 		@EpostaA AS NVARCHAR (100), 
 		@RodjendanA AS DATE, 
 		@AdresaA AS NVARCHAR (100), 
@@ -457,7 +458,7 @@ SELECT @JMBG = '1905976751090',
        @Visina = 176,
        @Tezina = 91,
        @BojaOciju = 'Kestenjaste',
-       @Telefon = '(+3816)(0)64.111.1111',
+       @Telefon = '(+381)(0)64.111.1111',
        @Eposta = 'ivan@mail.com',
        @Rodjendan = '1976-05-19',
        @Adresa = 'Rudarska 15',
@@ -468,7 +469,7 @@ SELECT @JMBG = '1905976751090',
        @VisinaA = 200,
        @TezinaA = 91,
        @BojaOcijuA = 'Kestenjaste',
-       @TelefonA = '(+3816)(0)64.111.1111',
+       @TelefonA = '(+381)(0)64.111.1111',
        @EpostaA = 'jovan@mail.com',
        @RodjendanA = '1986-05-19',
        @AdresaA = 'Rudarska 35',
@@ -479,6 +480,106 @@ DELETE FROM [dbo].[Osoba];
 EXECUTE @RC = [dbo].[insOSOBA] @JMBG, @Ime, @Prezime, @Visina, @Tezina, @BojaOciju, @Telefon, @Eposta, @Rodjendan, @Adresa, @Prebivaliste;  
 EXECUTE @RC = [dbo].[insOSOBA] @JMBGA, @ImeA, @PrezimeA, @VisinaA, @TezinaA, @BojaOcijuA, @TelefonA, @EpostaA, @RodjendanA, @AdresaA, @PrebivalisteA;  
  </value>
+  </data>
+  <data name="dbo_delOSOBATest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_fnGetPunoletneOsobeTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_fnMaxVisinaTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_fnPrvoSlovoVelikoTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_fnSrednjaStarostTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_fnStarostTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_insOSOBATest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_selOSOBATest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
+  </data>
+  <data name="dbo_updOSOBATest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+DELETE FROM [dbo].[Osoba];</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
