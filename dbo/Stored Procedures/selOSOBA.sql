@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[selOSOBA]
-	@Id int
+	@Id INT
 AS
 	SELECT * FROM [dbo].[Osoba]
 	WHERE [dbo].[Osoba].Id = @Id

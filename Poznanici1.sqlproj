@@ -78,5 +78,6 @@
     <Build Include="dbo\Views\PunoletniSmederevci.sql" />
     <Build Include="dbo\Functions\fnSrednjaStarost.sql" />
     <Build Include="dbo\Functions\fnMaxVisina.sql" />
+    <Build Include="dbo\Functions\testJMBG.sql" />
   </ItemGroup>
 </Project>

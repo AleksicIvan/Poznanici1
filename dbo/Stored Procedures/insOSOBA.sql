@@ -37,5 +37,5 @@
 		@Adresa, 
 		[dbo].[fnPrvoSlovoVeliko](@Prebivaliste)
 	)
+	RETURN 0
 
-GO
