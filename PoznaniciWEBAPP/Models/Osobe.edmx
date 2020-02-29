@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OsobeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Osoba">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JMBG" Type="nchar" MaxLength="13" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Visina" Type="smallint" />
+          <Property Name="Tezina" Type="smallint" />
+          <Property Name="BojaOciju" Type="nchar" MaxLength="11" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="29" Nullable="false" />
+          <Property Name="E-posta" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rodjendan" Type="date" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="100" />
+          <Property Name="Prebivaliste" Type="nchar" MaxLength="9" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Poznanici1.dbo.PunoletniSmederevci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PunoletniSmederevci">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="JMBG" />
+            <PropertyRef Name="Ime" />
+            <PropertyRef Name="Prezime" />
+            <PropertyRef Name="Telefon" />
+            <PropertyRef Name="E-posta" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JMBG" Type="nchar" MaxLength="13" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Visina" Type="smallint" />
+          <Property Name="Tezina" Type="smallint" />
+          <Property Name="BojaOciju" Type="nchar" MaxLength="11" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="29" Nullable="false" />
+          <Property Name="E-posta" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rodjendan" Type="date" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="100" />
+          <Property Name="Prebivaliste" Type="nchar" MaxLength="9" />
+        </EntityType>
+        <Function Name="delOSOBA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fnGetPunoletneOsobe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+          <Parameter Name="DatumRodjenja" Type="date" Mode="In" />
+        </Function>
+        <Function Name="fnMaxVisina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="MaxVisina" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnPrvoSlovoVeliko" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="word" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="fnSrednjaStarost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="SrednjaStarost" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnStarost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="DatumRodjenja" Type="date" Mode="In" />
+        </Function>
+        <Function Name="insOSOBA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JMBG" Type="nchar" Mode="In" />
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Visina" Type="smallint" Mode="In" />
+          <Parameter Name="Tezina" Type="smallint" Mode="In" />
+          <Parameter Name="BojaOciju" Type="nchar" Mode="In" />
+          <Parameter Name="Telefon" Type="nvarchar" Mode="In" />
+          <Parameter Name="Eposta" Type="nvarchar" Mode="In" />
+          <Parameter Name="Rodjendan" Type="date" Mode="In" />
+          <Parameter Name="Adresa" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prebivaliste" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="selOSOBA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="testJMBG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+          <Parameter Name="JMBG" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="updOSOBA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="JMBG" Type="nchar" Mode="In" />
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Visina" Type="smallint" Mode="In" />
+          <Parameter Name="Tezina" Type="smallint" Mode="In" />
+          <Parameter Name="BojaOciju" Type="nchar" Mode="In" />
+          <Parameter Name="Telefon" Type="nvarchar" Mode="In" />
+          <Parameter Name="Eposta" Type="nvarchar" Mode="In" />
+          <Parameter Name="Rodjendan" Type="date" Mode="In" />
+          <Parameter Name="Adresa" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prebivaliste" Type="nchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="OsobeModelStoreContainer">
+          <EntitySet Name="Osoba" EntityType="Self.Osoba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PunoletniSmederevci" EntityType="Self.PunoletniSmederevci" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PunoletniSmederevci].[Id] AS [Id], 
+    [PunoletniSmederevci].[JMBG] AS [JMBG], 
+    [PunoletniSmederevci].[Ime] AS [Ime], 
+    [PunoletniSmederevci].[Prezime] AS [Prezime], 
+    [PunoletniSmederevci].[Visina] AS [Visina], 
+    [PunoletniSmederevci].[Tezina] AS [Tezina], 
+    [PunoletniSmederevci].[BojaOciju] AS [BojaOciju], 
+    [PunoletniSmederevci].[Telefon] AS [Telefon], 
+    [PunoletniSmederevci].[E-posta] AS [E-posta], 
+    [PunoletniSmederevci].[Rodjendan] AS [Rodjendan], 
+    [PunoletniSmederevci].[Adresa] AS [Adresa], 
+    [PunoletniSmederevci].[Prebivaliste] AS [Prebivaliste]
+    FROM [dbo].[PunoletniSmederevci] AS [PunoletniSmederevci]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OsobeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="fnMaxVisina_Result">
+          <Property Name="MaxVisina" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="fnSrednjaStarost_Result">
+          <Property Name="SrednjaStarost" Type="Int32" />
+        </ComplexType>
+        <EntityType Name="Osoba">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visina" Type="Int16" />
+          <Property Name="Tezina" Type="Int16" />
+          <Property Name="BojaOciju" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="29" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_posta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodjendan" Type="DateTime" Precision="0" />
+          <Property Name="Adresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Prebivaliste" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PunoletniSmederevci">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="JMBG" />
+            <PropertyRef Name="Ime" />
+            <PropertyRef Name="Prezime" />
+            <PropertyRef Name="Telefon" />
+            <PropertyRef Name="E_posta" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JMBG" Type="String" MaxLength="13" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Visina" Type="Int16" />
+          <Property Name="Tezina" Type="Int16" />
+          <Property Name="BojaOciju" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="29" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_posta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodjendan" Type="DateTime" Precision="0" />
+          <Property Name="Adresa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Prebivaliste" Type="String" MaxLength="9" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Poznanici1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Osobas" EntityType="Self.Osoba" />
+          <EntitySet Name="PunoletniSmederevcis" EntityType="Self.PunoletniSmederevci" />
+          <FunctionImport Name="fnMaxVisina" IsComposable="true" ReturnType="Collection(OsobeModel.fnMaxVisina_Result)" />
+          <FunctionImport Name="fnSrednjaStarost" IsComposable="true" ReturnType="Collection(OsobeModel.fnSrednjaStarost_Result)" />
+          <FunctionImport Name="delOSOBA">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="insOSOBA">
+            <Parameter Name="JMBG" Mode="In" Type="String" />
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="Visina" Mode="In" Type="Int16" />
+            <Parameter Name="Tezina" Mode="In" Type="Int16" />
+            <Parameter Name="BojaOciju" Mode="In" Type="String" />
+            <Parameter Name="Telefon" Mode="In" Type="String" />
+            <Parameter Name="Eposta" Mode="In" Type="String" />
+            <Parameter Name="Rodjendan" Mode="In" Type="DateTime" />
+            <Parameter Name="Adresa" Mode="In" Type="String" />
+            <Parameter Name="Prebivaliste" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="selOSOBA" ReturnType="Collection(OsobeModel.selOSOBA_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updOSOBA">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="JMBG" Mode="In" Type="String" />
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="Visina" Mode="In" Type="Int16" />
+            <Parameter Name="Tezina" Mode="In" Type="Int16" />
+            <Parameter Name="BojaOciju" Mode="In" Type="String" />
+            <Parameter Name="Telefon" Mode="In" Type="String" />
+            <Parameter Name="Eposta" Mode="In" Type="String" />
+            <Parameter Name="Rodjendan" Mode="In" Type="DateTime" />
+            <Parameter Name="Adresa" Mode="In" Type="String" />
+            <Parameter Name="Prebivaliste" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="selOSOBA_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="JMBG" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="100" />
+          <Property Type="Int16" Name="Visina" Nullable="true" />
+          <Property Type="Int16" Name="Tezina" Nullable="true" />
+          <Property Type="String" Name="BojaOciju" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="Telefon" Nullable="false" MaxLength="29" />
+          <Property Type="String" Name="E_posta" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Rodjendan" Nullable="true" />
+          <Property Type="String" Name="Adresa" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Prebivaliste" Nullable="true" MaxLength="9" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OsobeModelStoreContainer" CdmEntityContainer="Poznanici1Entities">
+          <EntitySetMapping Name="Osobas">
+            <EntityTypeMapping TypeName="OsobeModel.Osoba">
+              <MappingFragment StoreEntitySet="Osoba">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Visina" ColumnName="Visina" />
+                <ScalarProperty Name="Tezina" ColumnName="Tezina" />
+                <ScalarProperty Name="BojaOciju" ColumnName="BojaOciju" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="E_posta" ColumnName="E-posta" />
+                <ScalarProperty Name="Rodjendan" ColumnName="Rodjendan" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Prebivaliste" ColumnName="Prebivaliste" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="OsobeModel.Osoba">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="OsobeModel.Store.insOSOBA">
+                  <ScalarProperty Name="E_posta" ParameterName="Eposta" />
+                  <ScalarProperty Name="Prebivaliste" ParameterName="Prebivaliste" />
+                  <ScalarProperty Name="Adresa" ParameterName="Adresa" />
+                  <ScalarProperty Name="Rodjendan" ParameterName="Rodjendan" />
+                  <ScalarProperty Name="Telefon" ParameterName="Telefon" />
+                  <ScalarProperty Name="BojaOciju" ParameterName="BojaOciju" />
+                  <ScalarProperty Name="Tezina" ParameterName="Tezina" />
+                  <ScalarProperty Name="Visina" ParameterName="Visina" />
+                  <ScalarProperty Name="Prezime" ParameterName="Prezime" />
+                  <ScalarProperty Name="Ime" ParameterName="Ime" />
+                  <ScalarProperty Name="JMBG" ParameterName="JMBG" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="OsobeModel.Store.updOSOBA">
+                  <ScalarProperty Name="E_posta" ParameterName="Eposta" Version="Current" />
+                  <ScalarProperty Name="Prebivaliste" ParameterName="Prebivaliste" Version="Current" />
+                  <ScalarProperty Name="Adresa" ParameterName="Adresa" Version="Current" />
+                  <ScalarProperty Name="Rodjendan" ParameterName="Rodjendan" Version="Current" />
+                  <ScalarProperty Name="Telefon" ParameterName="Telefon" Version="Current" />
+                  <ScalarProperty Name="BojaOciju" ParameterName="BojaOciju" Version="Current" />
+                  <ScalarProperty Name="Tezina" ParameterName="Tezina" Version="Current" />
+                  <ScalarProperty Name="Visina" ParameterName="Visina" Version="Current" />
+                  <ScalarProperty Name="Prezime" ParameterName="Prezime" Version="Current" />
+                  <ScalarProperty Name="Ime" ParameterName="Ime" Version="Current" />
+                  <ScalarProperty Name="JMBG" ParameterName="JMBG" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="OsobeModel.Store.delOSOBA">
+                  <ScalarProperty Name="Id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PunoletniSmederevcis">
+            <EntityTypeMapping TypeName="OsobeModel.PunoletniSmederevci">
+              <MappingFragment StoreEntitySet="PunoletniSmederevci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Visina" ColumnName="Visina" />
+                <ScalarProperty Name="Tezina" ColumnName="Tezina" />
+                <ScalarProperty Name="BojaOciju" ColumnName="BojaOciju" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="E_posta" ColumnName="E-posta" />
+                <ScalarProperty Name="Rodjendan" ColumnName="Rodjendan" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Prebivaliste" ColumnName="Prebivaliste" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="OsobeModel.Store.fnMaxVisina" FunctionImportName="fnMaxVisina">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OsobeModel.fnMaxVisina_Result">
+                <ScalarProperty Name="MaxVisina" ColumnName="MaxVisina" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="OsobeModel.Store.fnSrednjaStarost" FunctionImportName="fnSrednjaStarost">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OsobeModel.fnSrednjaStarost_Result">
+                <ScalarProperty Name="SrednjaStarost" ColumnName="SrednjaStarost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="delOSOBA" FunctionName="OsobeModel.Store.delOSOBA" />
+          <FunctionImportMapping FunctionImportName="insOSOBA" FunctionName="OsobeModel.Store.insOSOBA" />
+          <FunctionImportMapping FunctionImportName="selOSOBA" FunctionName="OsobeModel.Store.selOSOBA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OsobeModel.selOSOBA_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Visina" ColumnName="Visina" />
+                <ScalarProperty Name="Tezina" ColumnName="Tezina" />
+                <ScalarProperty Name="BojaOciju" ColumnName="BojaOciju" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="E_posta" ColumnName="E-posta" />
+                <ScalarProperty Name="Rodjendan" ColumnName="Rodjendan" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Prebivaliste" ColumnName="Prebivaliste" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updOSOBA" FunctionName="OsobeModel.Store.updOSOBA" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,105 @@
+﻿@model PoznaniciWEBAPP.Models.Osoba
+
+@{
+    ViewBag.Title = "Detaljnije";
+}
+
+<h2>Detaljnije</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JMBG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JMBG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Visina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tezina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tezina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BojaOciju)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BojaOciju)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.E_posta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_posta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rodjendan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rodjendan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prebivaliste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prebivaliste)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Svi poznanici", "Index")
+</p>

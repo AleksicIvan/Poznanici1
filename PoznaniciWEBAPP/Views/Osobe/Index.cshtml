@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PoznaniciWEBAPP.Models.Osoba>
+
+@{
+    ViewBag.Title = "Dodaj poznanika";
+}
+
+<h2>Poznanici</h2>
+
+<p>
+    @Html.ActionLink("Dodaj", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JMBG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tezina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BojaOciju)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.E_posta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rodjendan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prebivaliste)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JMBG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Visina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tezina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BojaOciju)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_posta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rodjendan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prebivaliste)
+        </td>
+        <td>
+            @Html.ActionLink("Izmeni", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Detaljnije", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Obriši", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
