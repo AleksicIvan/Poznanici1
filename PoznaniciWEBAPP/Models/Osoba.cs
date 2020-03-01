@@ -16,20 +16,34 @@ namespace PoznaniciWEBAPP.Models
     public partial class Osoba
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "JMBG mora biti unet.")]
+        [StringLength(13, ErrorMessage = "JMBG sme imati tačno 13 brojki.")]
         public string JMBG { get; set; }
+        [Required(ErrorMessage = "Ime mora biti uneto i to sa velikim početnim slovom.")]
+
         public string Ime { get; set; }
+        [Required(ErrorMessage = "Prezime mora biti uneto i to sa velikim početnim slovom.")]
+
         public string Prezime { get; set; }
+        [Required(ErrorMessage = "Visina mora biti uneta i mora biti veća od 35.")]
+
         public Nullable<short> Visina { get; set; }
+        [Required(ErrorMessage = "Težinu morate uneti i ne sme biti veća od 250.")]
         [Display(Name = "Težina")]
         public Nullable<short> Tezina { get; set; }
         [Display(Name = "Boja očiju")]
+        [Required(ErrorMessage = "Dozvoljene vrednosti su: Kestenjaste, Plave i Zelene")]
         public string BojaOciju { get; set; }
+        [Required(ErrorMessage = "Telefon morate uneti i to u formatu (+381)(0)##.###.####")]
         public string Telefon { get; set; }
         [Display(Name = "E pošta")]
+        [Required(ErrorMessage = "E pošta mora biti uneta i to u formatu ####@####.rs")]
         public string E_posta { get; set; }
+        [Required(ErrorMessage = "Uneti datum mora biti u formatu GGGG-MM-DD.")]
         public Nullable<System.DateTime> Rodjendan { get; set; }
         public string Adresa { get; set; }
         [Display(Name = "Prebivalište")]
+        [Required(ErrorMessage = "Dozvoljene vrednosti su: Beograd, Smederevo, Pirot, Sombor, Bor i Prokuplje")]
         public string Prebivaliste { get; set; }
     }
 }
